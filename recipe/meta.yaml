@@ -1,5 +1,5 @@
 {% set name = "glacier" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.2" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/glacier-{{ version }}.tar.gz
-  sha256: bbc21403214fdd09603dc877e684b94ea95b260a080351c8d40c9e3348171799
+  sha256: dc2893dd6131f7986cc0d66b0343cb6a07795676400b520e46223055bf69e88b
 
 build:
   number: 0
