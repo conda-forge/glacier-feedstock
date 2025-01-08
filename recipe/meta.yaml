@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/glacier-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/glacier-{{ version }}.tar.gz
   sha256: dc2893dd6131f7986cc0d66b0343cb6a07795676400b520e46223055bf69e88b
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -19,12 +19,12 @@ requirements:
   host:
     - pip
     - poetry >=0.12
-    - python >=3.9
+    - python {{ python_min }}
   run:
     - click >=8.0.4,<9.0.0
     - click-help-colors >=0.9.1,<0.10.0
     - importlib-metadata >=4.11.3,<5.0.0
-    - python >=3.9
+    - python >={{ python_min }}
     - typing_extensions >=4.1.1,<5.0.0
 
 test:
@@ -34,6 +34,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/relastle/glacier
