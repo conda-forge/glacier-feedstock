@@ -18,14 +18,12 @@ build:
 requirements:
   host:
     - pip
-    - poetry >=0.12
+    - hatchling >=1.0.0
     - python {{ python_min }}
   run:
-    - click >=8.0.4,<9.0.0
-    - click-help-colors >=0.9.1,<0.10.0
-    - importlib-metadata >=4.11.3,<5.0.0
     - python >={{ python_min }}
-    - typing_extensions >=4.1.1,<5.0.0
+    - click >=8.1.8
+    - click-help-colors >=0.9.4
 
 test:
   imports:
