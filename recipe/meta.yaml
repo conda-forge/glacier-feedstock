@@ -24,6 +24,8 @@ requirements:
     - python >={{ python_min }}
     - click >=8.1.8
     - click-help-colors >=0.9.4
+    # Not listed upstream but needed
+    - typing_extensions
 
 test:
   imports:
