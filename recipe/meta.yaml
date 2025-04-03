@@ -1,5 +1,5 @@
 {% set name = "glacier" %}
-{% set version = "0.4.2" %}
+{% set version = "0.4.4" %}
 
 
 package:
@@ -8,24 +8,24 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/glacier-{{ version }}.tar.gz
-  sha256: dc2893dd6131f7986cc0d66b0343cb6a07795676400b520e46223055bf69e88b
+  sha256: b2a98d556d08d87620551bc6603c110178258d8b47b483d8f53c28be5329721b
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - poetry >=0.12
+    - hatchling >=1.0.0
     - python {{ python_min }}
   run:
-    - click >=8.0.4,<9.0.0
-    - click-help-colors >=0.9.1,<0.10.0
-    - importlib-metadata >=4.11.3,<5.0.0
     - python >={{ python_min }}
-    - typing_extensions >=4.1.1,<5.0.0
+    - click >=8.1.8
+    - click-help-colors >=0.9.4
+    # Not listed upstream but needed
+    - typing_extensions
 
 test:
   imports:
