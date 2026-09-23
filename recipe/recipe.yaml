@@ -1,0 +1,49 @@
+schema_version: 1
+
+context:
+  name: glacier
+  version: "0.4.6"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/glacier-${{ version }}.tar.gz
+  sha256: 2e25f7a5ea73cf824303426fc35dec4c84a60075f2f467d4fe8bf910534dbedd
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - hatchling >=1.0.0
+    - python ${{ python_min }}.*
+  run:
+    - python >=${{ python_min }}
+    - click >=8.1.8
+    - click-help-colors >=0.9.4
+    # Not listed upstream but needed
+    - typing_extensions
+
+tests:
+  - python:
+      imports:
+        - glacier
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  summary: A python CLI building library for minimalists.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/relastle/glacier
+
+extra:
+  recipe-maintainers:
+    - thewchan
